@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="websiteFrame"></iframe>
+
+    <script>
+        // Mengambil URL dari parameter "url" di URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const websiteURL = urlParams.get('url');
+
+        // Jika parameter "url" ada dalam URL, tampilkan website
+        if (websiteURL) {
+            displayWebsite(websiteURL);
+        }
+
+        // Fungsi untuk menampilkan website dalam iframe
+        function displayWebsite(url) {
+            const iframe = document.getElementById('websiteFrame');
+            iframe.src = url;
+        }
+    </script>
+</body>
+</html>
